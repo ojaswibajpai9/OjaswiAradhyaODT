@@ -1,0 +1,49 @@
+from machine import Pin
+import time
+led = Pin(12, Pin.OUT)
+lel = Pin(14, Pin.OUT)
+lem = Pin(27, Pin.OUT)
+lec = Pin(26, Pin.OUT)
+pb = Pin(5,Pin.IN,Pin.PULL_UP)
+tb = Pin(4,Pin.IN,Pin.PULL_UP)
+while True :
+      pb_val = pb.value()
+      tb_val = tb.value()
+      print(pb_val)
+      print(tb_val)
+      time.sleep(0.2)
+      print(pb_val)
+      print(tb_val)
+      
+      if pb_val == 0 :
+         led.on()
+         time.sleep(0.2)
+         lel.on()
+         time.sleep(0.2)
+         lem.on()
+         time.sleep(0.2)
+         lec.on()
+         time.sleep(0.2)
+         
+      else :
+         led.off()
+         lel.off()
+         lem.off()
+         lec.off()
+    
+      if tb_val == 0 :
+         lec.on()
+         time.sleep(0.2)
+         lem.on()
+         time.sleep(0.2)
+         lel.on()
+         time.sleep(0.2)
+         led.on()
+         time.sleep(0.2)
+         
+      else :
+          lec.off()
+          lem.off()
+          lel.off()
+          led.off()
+          
